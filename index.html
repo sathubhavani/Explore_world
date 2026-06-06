@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExploreWorld | Hand-crafted Journeys</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for UI Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header / Navbar Menu -->
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <i class="fa-solid fa-compass"></i> ExploreWorld
+            </div>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#destinations">Destinations</a></li>
+                    <li><a href="#packages">Packages</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" id="mobileMenu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero / Welcome Banner -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <p class="hero-subtitle">ICELAND • NORTHERN LIGHTS</p>
+            <h1>Discover Your Next Adventure</h1>
+            <p class="hero-text">Hand-crafted journeys to the world's most breathtaking corners.</p>
+            <div class="hero-buttons">
+                <a href="#packages" class="btn btn-primary">Book Now &rarr;</a>
+                <a href="#destinations" class="btn btn-secondary">Explore Destinations</a>
+            </div>
+        </div>
+
+        <!-- Destination Selection Drop-Down Search Widget -->
+        <div class="search-container">
+            <form id="searchForm" class="search-form">
+                <div class="search-input">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <select id="searchDest" required>
+                        <option value="" disabled selected>Select Destination</option>
+                        <option value="all">All Destinations</option>
+                        <option value="santorini">Santorini (Greece)</option>
+                        <option value="kyoto">Kyoto (Japan)</option>
+                        <option value="goa">Goa (India)</option>
+                        <option value="maldives">Maldives</option>
+                        <option value="bali">Bali (Indonesia)</option>
+                        <option value="paris">Paris (France)</option>
+                    </select>
+                </div>
+                <div class="search-input">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <input type="date" id="searchDate" required>
+                </div>
+                <div class="search-input">
+                    <i class="fa-solid fa-users"></i>
+                    <select id="searchTravelers">
+                        <option value="1">1 Traveler</option>
+                        <option value="2" selected>2 Travelers</option>
+                        <option value="3">3 Travelers</option>
+                        <option value="4+">4+ Travelers</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-search"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Global Application Notification Toast Banner -->
+    <div id="toast" class="toast hidden">
+        <i class="fa-solid fa-circle-check"></i> <span id="toastMessage">Action successful!</span>
+    </div>
+
+    <!-- Featured Places Section -->
+    <section id="destinations" class="destinations-section">
+        <h2>Six places worth packing for.</h2>
+        <p class="section-desc">A short list of the destinations our travelers fall in love with most — curated, never crowded.</p>
+        
+        <div class="destinations-grid">
+            <!-- Santorini Card -->
+            <div class="dest-card" data-tags="santorini">
+                <div class="dest-img" style="background-image: url('https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=600&q=80');">
+                    <span class="tag">COASTAL</span>
+                    <span class="price-tag">from $1290</span>
+                </div>
+                <div class="dest-info">
+                    <p class="location"><i class="fa-solid fa-location-dot"></i> GREECE</p>
+                    <h3>Santorini</h3>
+                    <p>Whitewashed cliffs, cobalt domes and sunsets that paint the Aegean gold.</p>
+                    <a href="details.html?goto=santorini" class="plan-link">Plan this trip &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Kyoto Card -->
+            <div class="dest-card" data-tags="kyoto">
+                <div class="dest-img" style="background-image: url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=600&q=80');">
+                    <span class="tag">CULTURAL</span>
+                    <span class="price-tag">from $1840</span>
+                </div>
+                <div class="dest-info">
+                    <p class="location"><i class="fa-solid fa-location-dot"></i> JAPAN</p>
+                    <h3>Kyoto</h3>
+                    <p>Bamboo forests, ancient shrines, and quiet tea ceremonies tucked away in historic alleys.</p>
+                    <a href="details.html?goto=kyoto" class="plan-link">Plan this trip &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Goa Card -->
+            <div class="dest-card" data-tags="goa">
+                <div class="dest-img" style="background-image: url('https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=600&q=80');">
+                    <span class="tag">BEACH & TROPICAL</span>
+                    <span class="price-tag">from $450</span>
+                </div>
+                <div class="dest-info">
+                    <p class="location"><i class="fa-solid fa-location-dot"></i> INDIA</p>
+                    <h3>Goa</h3>
+                    <p>Golden sands, Portuguese heritage, spice plantations, and vibrant beachside nightlife.</p>
+                    <a href="details.html?goto=goa" class="plan-link">Plan this trip &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Maldives Card -->
+            <div class="dest-card" data-tags="maldives">
+                <div class="dest-img" style="background-image: url('https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=600&q=80');">
+                    <span class="tag">LUXURY RESORT</span>
+                    <span class="price-tag">from $2100</span>
+                </div>
+                <div class="dest-info">
+                    <p class="location"><i class="fa-solid fa-location-dot"></i> MALDIVES</p>
+                    <h3>Maldives</h3>
+                    <p>Overwater bungalows, crystal clear turquoise lagoons, and private pristine sandbanks.</p>
+                    <a href="details.html?goto=maldives" class="plan-link">Plan this trip &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Bali Card -->
+            <div class="dest-card" data-tags="bali">
+                <div class="dest-img" style="background-image: url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=600&q=80');">
+                    <span class="tag">NATURE & SPIRITUAL</span>
+                    <span class="price-tag">from $890</span>
+                </div>
+                <div class="dest-info">
+                    <p class="location"><i class="fa-solid fa-location-dot"></i> INDONESIA</p>
+                    <h3>Bali</h3>
+                    <p>Misty volcanic peaks, terraced emerald rice fields, and iconic seaside sea temples.</p>
+                    <a href="details.html?goto=bali" class="plan-link">Plan this trip &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Paris Card -->
+            <div class="dest-card" data-tags="paris">
+                <div class="dest-img" style="background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=600&q=80');">
+                    <span class="tag">ROMANTIC CITY</span>
+                    <span class="price-tag">from $1350</span>
+                </div>
+                <div class="dest-info">
+                    <p class="location"><i class="fa-solid fa-location-dot"></i> FRANCE</p>
+                    <h3>Paris</h3>
+                    <p>Timeless architecture, world-class art museums, and candle-lit sidewalk bistros along the Seine.</p>
+                    <a href="details.html?goto=paris" class="plan-link">Plan this trip &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tour Packages Section with Live Checkout triggers -->
+    <section id="packages" class="packages-section">
+        <p class="orange-label">&#9670; TOUR PACKAGES</p>
+        <h2>Hand-crafted itineraries, ready to go.</h2>
+        <p class="section-desc">Every package is built with local experts and refined over hundreds of journeys.</p>
+
+        <div class="packages-container">
+            <!-- Package 1: Greece -->
+            <div class="package-card">
+                <div class="package-img" style="background-image: url('https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=600&q=80');">
+                    <span class="badge">$1490</span>
+                </div>
+                <div class="package-content">
+                    <div class="package-meta">
+                        <span><i class="fa-regular fa-clock"></i> 7 Days • 6 Nights</span>
+                        <span><i class="fa-solid fa-star"></i> 4.9 · 312 reviews</span>
+                    </div>
+                    <h3>Greek Isles Odyssey</h3>
+                    <ul class="package-features">
+                        <li><i class="fa-solid fa-check"></i> Caldera sunset cruise</li>
+                        <li><i class="fa-solid fa-check"></i> Local taverna nights</li>
+                        <li><i class="fa-solid fa-check"></i> Private guide</li>
+                    </ul>
+                    <div class="package-footer">
+                        <div>
+                            <span class="per-person">PER PERSON</span>
+                            <p class="price">$1,490</p>
+                        </div>
+                        <button class="btn btn-book" onclick="openPaymentModal('Greek Isles Odyssey', '$1,490')">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package 2: Maldives -->
+<div class="package-card">
+                <div class="package-img" style="background-image: url('https://images.unsplash.com/photo-1587922546307-776227941871?auto=format&fit=crop&w=600&q=80');">
+                    <span class="badge">$490</span>
+                </div>
+                <div class="package-content">
+                    <div class="package-meta">
+                        <span><i class="fa-regular fa-clock"></i> 4 Days • 3 Nights</span>
+                        <span><i class="fa-solid fa-star"></i> 4.7 · 145 reviews</span>
+                    </div>
+                    <h3>Maldives Paradise</h3>
+                    <ul class="package-features">
+                        <li><i class="fa-solid fa-check"></i> Overwater bungalow stay</li>
+                        <li><i class="fa-solid fa-check"></i> Sunset snorkeling tour</li>
+                        <li><i class="fa-solid fa-check"></i> All-inclusive fine dining</li>
+                    </ul>
+                    <div class="package-footer">
+                        <div>
+                            <span class="per-person">PER PERSON</span>
+                            <p class="price">$1,250</p>
+                        </div>
+                        <button class="btn btn-book" onclick="openPaymentModal('Maldives', '$1,250')">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package 3: Goa -->
+            <div class="package-card">
+                <div class="package-img" style="background-image: url('https://images.unsplash.com/photo-1587922546307-776227941871?auto=format&fit=crop&w=600&q=80');">
+                    <span class="badge">$490</span>
+                </div>
+                <div class="package-content">
+                    <div class="package-meta">
+                        <span><i class="fa-regular fa-clock"></i> 4 Days • 3 Nights</span>
+                        <span><i class="fa-solid fa-star"></i> 4.7 · 145 reviews</span>
+                    </div>
+                    <h3>Goa Beach Escape</h3>
+                    <ul class="package-features">
+                        <li><i class="fa-solid fa-check"></i> Heritage Latin Quarter walk</li>
+                        <li><i class="fa-solid fa-check"></i> Scuba diving at Grand Island</li>
+                        <li><i class="fa-solid fa-check"></i> Beach shack dinners</li>
+                    </ul>
+                    <div class="package-footer">
+                        <div>
+                            <span class="per-person">PER PERSON</span>
+                            <p class="price">$490</p>
+                        </div>
+                        <button class="btn btn-book" onclick="openPaymentModal('Goa Beach Escape', '$490')">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package 4: Bali -->
+            <div class="package-card">
+                <div class="package-img" style="background-image: url('https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=600&q=80');">
+                    <span class="badge">$950</span>
+                </div>
+                <div class="package-content">
+                    <div class="package-meta">
+                        <span><i class="fa-regular fa-clock"></i> 6 Days • 5 Nights</span>
+                        <span><i class="fa-solid fa-star"></i> 4.9 · 210 reviews</span>
+                    </div>
+                    <h3>Bali Culture & Coast</h3>
+                    <ul class="package-features">
+                        <li><i class="fa-solid fa-check"></i> Ubud jungle swing & estate tour</li>
+                        <li><i class="fa-solid fa-check"></i> Uluwatu Temple sunset dance</li>
+                        <li><i class="fa-solid fa-check"></i> Private luxury villa pool</li>
+                    </ul>
+                    <div class="package-footer">
+                        <div>
+                            <span class="per-person">PER PERSON</span>
+                            <p class="price">$950</p>
+                        </div>
+                        <button class="btn btn-book" onclick="openPaymentModal('Bali Culture & Coast', '$950')">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+<!-- Customer Reviews Section -->
+    <section id="testimonials" class="testimonials-section">
+        <p class="orange-label">&#9670; TRAVELERS' WORDS</p>
+        <h2>Stories from the road.</h2>
+        
+        <div class="testimonials-grid">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <blockquote>
+                    "ExploreWorld designed a Kyoto trip that felt deeply personal — every detail was thought through. The guides were storytellers, not just narrators."
+                </blockquote>
+                <div class="author">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" alt="Amelia Hart">
+                    <div>
+                        <h4>Amelia Hart</h4>
+                        <p>London, UK</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <blockquote>
+                    "The Maldives itinerary was seamless. From the private sandbank picnic to the resort transitions, we didn't have to lift a finger. Absolutely flawless."
+                </blockquote>
+                <div class="author">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Marcus Vance">
+                    <div>
+                        <h4>Marcus Vance</h4>
+                        <p>New York, USA</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <blockquote>
+                    "Our Bali culture tour was spectacular. We avoided the massive crowds and found hidden waterfalls our guide grew up exploring. An authentic dream come true!"
+                </blockquote>
+                <div class="author">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&q=80" alt="Elena Rostova">
+                    <div>
+                        <h4>Elena Rostova</h4>
+                        <p>Berlin, Germany</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 4 -->
+            <div class="testimonial-card">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <blockquote>
+                    "The sunset caldera cruise in Greece alone was worth the booking. Everything felt hyper-exclusive, curated with care, and completely relaxed."
+                </blockquote>
+                <div class="author">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt="Julian Kim">
+                    <div>
+                        <h4>Julian Kim</h4>
+                        <p>Seoul, South Korea</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Custom Contact Inquiry Section -->
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <div class="contact-info">
+                <p class="orange-label">&#9670; PLAN WITH US</p>
+                <h2>Tell us where you're dreaming of.</h2>
+                <p>Share a few details and a travel designer will be in touch within a day, often sooner.</p>
+                
+                <div class="info-blocks">
+                    <div class="info-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <span class="label">PHONE</span>
+                            <p>+1 (800) 555-0199</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <span class="label">EMAIL</span>
+                            <p>hello@exploreworld.travel</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <span class="label">STUDIO</span>
+                            <p>21 Harbor Lane, Lisbon, Portugal</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-container">
+                <form id="inquiryForm">
+                    <div class="form-group">
+                        <label for="name">NAME</label>
+                        <input type="text" id="name" placeholder="Your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">EMAIL</label>
+                        <input type="email" id="email" placeholder="you@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="destination">DESTINATION OF INTEREST</label>
+                        <select id="destination" required>
+                            <option value="" disabled selected>Select a destination</option>
+                            <option value="Santorini, Greece">Santorini (Greece)</option>
+                            <option value="Kyoto, Japan">Kyoto (Japan)</option>
+                            <option value="Goa, India">Goa (India)</option>
+                            <option value="Maldives">Maldives</option>
+                            <option value="Bali, Indonesia">Bali (Indonesia)</option>
+                            <option value="Paris, France">Paris (France)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">TELL US ABOUT YOUR TRIP</label>
+                        <textarea id="notes" rows="4" placeholder="Dates, group size, the kind of experience you're after..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-submit">Send Inquiry &nbsp;<i class="fa-solid fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Area -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fa-solid fa-compass"></i> ExploreWorld
+            </div>
+            
+            <div class="footer-socials">
+                <a href="https://instagram.com/Explore_world" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i> @Explore_world</a>
+                <a href="https://facebook.com/exploreworld" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i> exploreworld</a>
+                <a href="https://youtube.com/@Explore_world" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i> Explore_world</a>
+            </div>
+            
+            <p>&copy; 2026 ExploreWorld Travel Co. • All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Secure Checkout Overlay Payment Modal Window Container -->
+    <div id="paymentModal" class="modal-overlay hidden">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>Secure Checkout</h3>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="booking-summary">
+                    <p>Package: <strong id="modalPackageName">Package Name</strong></p>
+                    <p>Total Amount: <strong id="modalPackagePrice" class="text-orange">$0</strong></p>
+                </div>
+                
+                <form id="paymentForm">
+                    <div class="form-group">
+                        <label for="cardName">CARDHOLDER NAME</label>
+                        <input type="text" id="cardName" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cardNumber">CARD NUMBER</label>
+                        <div class="input-icon-wrapper">
+                            <input type="text" id="cardNumber" placeholder="4111 2222 3333 4444" maxlength="19" required>
+                            <i class="fa-solid fa-credit-card"></i>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cardExpiry">EXPIRY DATE</label>
+                            <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cardCvc">CVC</label>
+                            <input type="password" id="cardCvc" placeholder="123" maxlength="3" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-submit btn-pay" id="paySubmitBtn">
+                        Confirm & Pay <span id="payBtnAmount">$0</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Links our Core Controller Script -->
+    <script src="script.js"></script>
+</body>
+</html>
